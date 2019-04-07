@@ -3,10 +3,14 @@ const graphqlHTTPHandlerCallback = require('express-graphql');
 
 const app = express();
 const port = 3999;
+const schema = require('./schema/schema');
 
-
+/**
+ * Middleware
+ */
 app.use("/graphql", graphqlHTTPHandlerCallback({
-    // Options schema
+    schema,
+    graphiql: true
 }));
 
 
